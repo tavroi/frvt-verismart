@@ -29,18 +29,38 @@ NullImplFRVT11_TWINS::initialize(const std::string &configDir)
 }
 
 ReturnStatus
-NullImplFRVT11_TWINS::createTemplate(
-        const std::vector<Image> &faces,
+NullImplFRVT11_TWINS::createFaceTemplate(
+        const std::vector<FRVT::Image> &faces,
         TemplateRole role,
         std::vector<uint8_t> &templ,
         std::vector<EyePair> &eyeCoordinates)
 {
-    /* Note: createTemplate() will not be in the Twins Demonstraion Track  */
+    /* Note: example code, potentially not portable across machines. */
+    std::vector<float> fv = {1.0, 2.0, 8.88, 765.88989};
+    const uint8_t* bytes = reinterpret_cast<const uint8_t*>(fv.data());
+    int dataSize = sizeof(float) * fv.size();
+    templ.resize(dataSize);
+    memcpy(templ.data(), bytes, dataSize);
+
+    for (unsigned int i = 0; i < faces.size(); i++) {
+        eyeCoordinates.push_back(EyePair(true, true, i, i, i+1, i+1));
+    }
+
     return ReturnStatus(ReturnCode::Success);
 }
 
 ReturnStatus
-NullImplFRVT11_TWINS::createTemplate(
+NullImplFRVT11_TWINS::createIrisTemplate(
+        const std::vector<FRVT::Image> &irises,
+        TemplateRole role,
+        std::vector<uint8_t> &templ,
+        std::vector<IrisAnnulus> &irisLocations)
+{
+    return ReturnStatus(ReturnCode::NotImplemented);
+}
+
+ReturnStatus
+NullImplFRVT11_TWINS::createFaceTemplate(
     const FRVT::Image &image,
     FRVT::TemplateRole role,
     std::vector<std::vector<uint8_t>> &templs,
@@ -69,7 +89,7 @@ ReturnStatus
 NullImplFRVT11_TWINS::matchTemplates(
         const std::vector<uint8_t> &verifTemplate,
         const std::vector<uint8_t> &enrollTemplate,
-        double &similarity)
+        double &score)
 {
     /*
     float *featureVector = (float *)enrollTemplate.data();
@@ -79,7 +99,7 @@ NullImplFRVT11_TWINS::matchTemplates(
     }
     */
 
-    similarity = rand() % 1000 + 1;
+    score = rand() % 1000 + 1;
     return ReturnStatus(ReturnCode::Success);
 }
 

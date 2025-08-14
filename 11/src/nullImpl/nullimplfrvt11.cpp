@@ -94,10 +94,6 @@ NullImplFRVT11::matchTemplates(
 {
     float *featureVector = (float *)enrollTemplate.data();
 
-    for (unsigned int i=0; i<this->featureVectorSize; i++) {
-	std::cout << std::setprecision(10) << featureVector[i] << std::endl;
-    }
-
     score = rand() % 1000 + 1;
     return ReturnStatus(ReturnCode::Success);
 }

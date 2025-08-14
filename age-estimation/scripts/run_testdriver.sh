@@ -48,7 +48,7 @@ do
     numForks=1
     outputStem=$actionType
 
-    tempConfigDir=otherConfig
+	tempConfigDir=$(shuf -er -n20  {A..Z} {a..z} {0..9} | tr -d '\n')
     chmod 775 $configDir; mv $configDir $tempConfigDir; chmod 550 $tempConfigDir
     bin/validate_ae $actionType -c $tempConfigDir -o $outputDir -h $outputStem -i $inputFile -t $numForks $optCmd 
     ret=$?

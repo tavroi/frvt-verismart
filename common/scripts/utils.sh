@@ -6,7 +6,7 @@ failure=1
 bold=$(tput bold)
 normal=$(tput sgr0)
 
-reqOS="Ubuntu 20.04.3 LTS"
+reqOS="Ubuntu 24.04.3 LTS"
 
 # Function to check version of OS
 check_os() {
@@ -25,9 +25,6 @@ check_packages() {
     do
         if [ $(dpkg-query -W -f='${Status}' $package 2>/dev/null | grep -c "ok installed") -eq 0 ];
     then
-            if [ "$package" == "g++" ]; then
-                package="g++=4:9.3.0-1ubuntu2"
-            fi
             sudo apt-get install -y $package;
         fi
     done

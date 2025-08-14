@@ -14,7 +14,7 @@
 #include "frvt11.h"
 
 /*
- * Declare the implementation class of the FRVT 1:1 Interface
+ * Declare the implementation class of the FRVT Twins Interface
  */
 namespace FRVT_11 {
     class NullImplFRVT11_TWINS : public FRVT_11::Interface {
@@ -27,14 +27,21 @@ public:
     initialize(const std::string &configDir) override;
 
     FRVT::ReturnStatus
-    createTemplate(
-            const std::vector<Image> &faces,
+    createFaceTemplate(
+            const std::vector<FRVT::Image> &faces,
             FRVT::TemplateRole role,
             std::vector<uint8_t> &templ,
             std::vector<FRVT::EyePair> &eyeCoordinates) override;
 
     FRVT::ReturnStatus
-    createTemplate(
+    createIrisTemplate(
+            const std::vector<FRVT::Image> &irises,
+            FRVT::TemplateRole role,
+            std::vector<uint8_t> &templ,
+            std::vector<FRVT::IrisAnnulus> &irisLocations) override;
+
+    FRVT::ReturnStatus
+    createFaceTemplate(
             const FRVT::Image &image,
             FRVT::TemplateRole role,
             std::vector<std::vector<uint8_t>> &templs,
@@ -44,7 +51,7 @@ public:
     matchTemplates(
             const std::vector<uint8_t> &verifTemplate,
             const std::vector<uint8_t> &enrollTemplate,
-            double &similarity) override;
+            double &score) override;
 
     static std::shared_ptr<FRVT_11::Interface>
     getImplementation();
@@ -56,4 +63,4 @@ private:
 };
 }
 
-#endif /* NULLIMPLFRVT11_H_ */
+#endif /* NULLIMPLFRVT11_TWINS_H_ */

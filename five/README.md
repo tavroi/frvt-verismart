@@ -6,7 +6,7 @@ The purpose of this validation package is to
 2) ensure that NIST's execution of your library submission produces the expected output, and
 3) prepare your submission package to send to NIST.
 
-The code provided here is meant only for validation purposes and does not reflect how NIST will perform actual testing.  Please note that this validation package must be installed and run on Ubuntu 20.04.3, which can be downloaded from https://nigos.nist.gov/evaluations/ubuntu-20.04.3-live-server-amd64.iso.
+The code provided here is meant only for validation purposes and does not reflect how NIST will perform actual testing.  Please note that this validation package must be installed and run on Ubuntu 24.04.3, which can be downloaded from https://nigos.nist.gov/evaluations/ubuntu-24.04.3-live-server-amd64.iso.
 
 # Important Notes
 Please confirm that your software can handle very very large enrollment database sizes.  Specifically, please ensure that your software (especially during finalization and search) can handle processing an EDB (enrollment database) that exceeds 2<sup>32</sup> bytes in size.  In other words, use 64-bit types when you need them.

@@ -43,7 +43,7 @@ inputFile=${inputDir}/short_enroll.txt
 outputStem=enroll
 
 echo -n "Checking for hard-coded config directory "
-tempConfigDir=otherConfig
+tempConfigDir=$(shuf -er -n20  {A..Z} {a..z} {0..9} | tr -d '\n')
 chmod 775 $configDir; mv $configDir $tempConfigDir; chmod 550 $tempConfigDir
 bin/validate11 createTemplate -x enroll -c $tempConfigDir -o $outputDir -h $outputStem -i $inputFile -t $numForks -j $templatesDir
 retEnroll=$?

@@ -114,7 +114,7 @@ do
 
     echo -n "Checking for hard-coded config directory "
     inputFile=input/$modality/enroll_1N_short.txt
-    tempConfigDir=otherConfig
+	tempConfigDir=$(shuf -er -n20  {A..Z} {a..z} {0..9} | tr -d '\n')
     chmod 775 $configDir; mv $configDir $tempConfigDir; chmod 550 $tempConfigDir
     bin/validate1N $modality enroll_1N -c $tempConfigDir -o $outputDir -h $outputStem -i $inputFile -t $numForks
     retEnrollment=$?

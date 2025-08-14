@@ -17,6 +17,7 @@
 #include <sstream>
 #include <iomanip>
 #include <unordered_set>
+#include <limits>
 
 #include "frte_five.h"
 #include "util.h"
