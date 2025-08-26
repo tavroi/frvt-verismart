@@ -408,7 +408,7 @@ extern uint16_t FRVT_STRUCTS_MINOR_VERSION;
 /** major version number. */
 uint16_t FRVT_STRUCTS_MAJOR_VERSION{3};
 /** minor version number. */
-uint16_t FRVT_STRUCTS_MINOR_VERSION{0};
+uint16_t FRVT_STRUCTS_MINOR_VERSION{1};
 #endif /* NIST_EXTERN_FRVT_STRUCTS_VERSION */
 }
 
