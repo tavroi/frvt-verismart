@@ -186,6 +186,11 @@ do
     bin/validate1N $modality finalize_1N -c $configDir -e $enrollDir -o $outputDir -h $outputStem
     retFinalize=$?
     if [[ $retFinalize == 0 ]]; then
+	#check if the output directory is empty or if the files in the directory are empty and return failed. 
+	if [ -z "$(ls -A $enrollDir)" ]  || [ ! -z $(find validation/face/enroll -maxdepth 1 -type f  -empty -print -quit) ] ; then
+	    echo "${bold}[ERROR] $enrollDir is empty.${normal}"
+	    exit $failure
+	fi
         echo "[SUCCESS]"
     elif [[ $retFinalize == 2 ]]; then
         echo "[NOT IMPLEMENTED]"
