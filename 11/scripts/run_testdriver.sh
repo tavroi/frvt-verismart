@@ -162,7 +162,7 @@ fi
 echo -n "Matching Multi-person Templates (Single Process) "
 inputFileMulti=input/match_multiperson.txt
 rm -f $inputFileMulti
-sed '1d' $inputFile | awk '{ print $1 }' | while read line
+cat $inputFile | awk '{ print $1 }' | while read line
 do
     grep "${line}_" $outputDir/$outputStem.log | awk -v enroll=$line '{ print enroll".template " $1".template" }' >> $inputFileMulti
 done
