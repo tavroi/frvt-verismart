@@ -20,6 +20,15 @@ $ ./scripts/build_null_impl.sh
 ````  
 This will place the implementation library into ./lib.
 
+# Null Implementation - Python
+There is another null implementation of the FATE MORPH API in ./src/nullImpl_python that contains an example C++ wrapper that internally calls Python code.  Please note that this is just one example of how developers could use C++ to access their existing Python software.  There are other approaches that exist as well.  While the null implementation doesn't actually provide any real functionality, it demonstrates mechanically how one could go about wrapping Python code with the C++ FATE MORPH API.
+
+To compile and build the null implementation, from the top level validation directory run
+````console
+$ ./scripts/build_null_impl_python.sh
+````
+This will place the implementation library into ./lib.
+
 # Validation and Submission Preparation
 To successfully complete the validation process, and to prepare your submission package
 to send to NIST, please perform the following steps:
