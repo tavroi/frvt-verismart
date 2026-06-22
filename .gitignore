@@ -1,3 +1,26 @@
 
 common/images/face/.DS_Store
 .DS_Store
+.env
+.env.example
+
+# Compiled files
+*.so
+*.tar.gz
+bin/
+
+# Model files
+*.onnx
+*.h5
+
+# Documentation
+*.md
+doc/
+
+# Generated files
+validation/
+validate_out*
+build/
+
+# Temporary files
+5UJHhdur9BZTZsqWu0Hi/

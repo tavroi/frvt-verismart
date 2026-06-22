@@ -1,0 +1,10 @@
+tensorflow==2.10.1
+numpy==1.23.5
+opencv-python
+tqdm
+scikit-learn
+insightface==0.7.3
+onnxruntime-gpu==1.16.3
+onnx==1.12.0
+protobuf==3.19.6
+ml_dtypes==0.2.0

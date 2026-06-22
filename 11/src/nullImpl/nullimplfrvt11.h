@@ -13,10 +13,14 @@
 
 #include "frvt11.h"
 
+#include <memory>
+
 /*
  * Declare the implementation class of the FRVT 1:1 Interface
  */
 namespace FRVT_11 {
+    class PythonWorker;
+
     class NullImplFRVT11 : public FRVT_11::Interface {
 public:
 
@@ -58,8 +62,9 @@ public:
 
 private:
     std::string configDir;
-    static const int featureVectorSize{4};
-    // Some other members
+    bool initialized{false};
+    int workerOwnerPid{0};
+    std::unique_ptr<PythonWorker> worker;
 };
 }
 
